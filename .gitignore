@@ -1,4 +1,8 @@
+
+# Mac Cruft
 .DS_Store
+
+# Node libraries and compiled code
 node_modules
 /dist
 
@@ -20,3 +24,10 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Python compiled code, etc
+*.pyc
+
+# Yarn, Package lock files
+*.lock
+!yarn.lock
