@@ -2,6 +2,9 @@
 # Mac Cruft
 .DS_Store
 
+# Ignore SQLite DB files
+*.db
+
 # Node libraries and compiled code
 node_modules
 /dist
