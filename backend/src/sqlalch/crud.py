@@ -33,8 +33,10 @@ def get_questions(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Question).offset(skip).limit(limit).all()
 
 
-def create_user_question(db: Session, question: schemas.QuestionCreate, user_id: int):
-    db_item = models.Question(**question.dict(), owner_id=user_id)
+def create_user_question(db: Session, question: schemas.QuestionCreate, username: str):
+    user = get_user_by_username(db=db, username=username)
+    db_item = models.Question(**question.dict(), creator_id=user.id)
+    print(f"I received {db_item}")
     db.add(db_item)
     db.commit()
     db.refresh(db_item)

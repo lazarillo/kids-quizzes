@@ -20,10 +20,10 @@ def upgrade():
     op.create_table(
         "users",
         sa.Column("id", sa.Integer, primary_key=True, index=True),
-        sa.Column("name", sa.Unicode(50), nullable=False),
-        sa.Column("username", sa.Unicode(50), unique=True, nullable=False, index=True),
-        sa.Column("email", sa.Unicode(100), nullable=True),
-        sa.Column("hashed_password", sa.Unicode(50), nullable=False),
+        sa.Column("name", sa.String(50), nullable=False),
+        sa.Column("username", sa.String(50), unique=True, nullable=False, index=True),
+        sa.Column("email", sa.String(100), nullable=True),
+        sa.Column("hashed_password", sa.String(50), nullable=False),
         sa.Column("is_active", sa.Boolean, nullable=False, default=True),
     )
 

@@ -4,11 +4,12 @@ from pydantic import BaseModel
 
 
 class QuestionPictureBase(BaseModel):
-    question_id: int
+    pass
 
 
 class QuestionPicture(QuestionPictureBase):
     id: int
+    question_id: int
 
     class Config:
         orm_mode = True
@@ -25,7 +26,7 @@ class QuestionCreate(QuestionBase):
 
 class Question(QuestionBase):
     id: int
-    owner_id: int
+    creator_id: int
     pictures: List[QuestionPicture] = []
 
     class Config:
